@@ -1,0 +1,115 @@
+
+
+/*关于网站的说明*/
+.floor_index{
+    width: 70px;
+    height: 248px;
+    background-color: rgb(218, 218, 218);
+    position: fixed;
+    right: 50px;
+    bottom: 200px;
+    border-radius: 5px;
+    display: block;
+}
+.floor_index li{
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    border-top: 1px dashed rgb(124, 123, 123);
+    box-sizing: content-box;
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+}
+.floor_index li:nth-child(1){
+    border-top: none;
+    border-top-left-radius:5px;
+    border-top-right-radius:2px;
+}
+.floor_index li:nth-child(8){
+    border-top: none;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:2px;
+    border-top: 1px dashed rgb(124, 123, 123);
+}
+.floor_index li:hover{
+    color: orange;
+}
+
+/* manul-width */
+.explanation{
+    width: 1100px;
+    height: 5200px;
+    background-color: white;
+    margin: 0 auto;
+}
+.explanation .explanation_container{
+width: 100%;
+height: 100%;
+}
+.explanation .explanation_container .explanation_box{
+    padding-top: 60px;
+    width: 80%;
+    height: 15%;
+    border-bottom: 1px dashed rgb(37, 37, 37);
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+}
+.explanation .explanation_container .explanation_box span{
+    display: block;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 38px;
+    letter-spacing: 10px;
+    font-family: 'Microsoft JhengHei';
+    font-weight: 500;
+}
+.explanation .explanation_container .explanation_box .explanation_article{
+    width: 100%;
+    height: 73%;
+    text-indent:2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 35px;
+    font-family: 'Microsoft YaHei';
+    color: rgb(70, 70, 70);
+}
+
+@media screen and (max-width: 1280px){
+    .floor_index{
+        right: 10px;
+    }
+}
+@media screen and (max-width: 1024px){
+    .explanation{
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .explanation{
+        width: 700px;
+        height: 6500px;
+    }
+}
+@media screen and (max-width: 414px){
+    .explanation{
+        width: 100%;
+        height: 11000px;
+    }
+    .explanation .explanation_container .explanation_box:nth-child(3){
+        height: 18% !important;
+    }
+    .floor_index{
+        display: none;
+    }
+}
+/*关于网站的说明*/
+
+

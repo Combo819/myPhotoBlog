@@ -1,0 +1,84 @@
+
+
+/*中间滚动木马*/
+/*manul*/
+.slider{
+    width: 1000px;
+    height: 600px;
+    margin: 120px auto;
+    /* background-color: red; */
+    position: relative;
+}
+.slider .slider_mainvvvvvvvvv{
+    width: 100%;
+    height: 100%;
+}
+.slider .slider_main li{
+    display: inline-block;
+    position: absolute;
+    /* background-color: blue; */
+}
+.slider .slider_main li a img{
+    width: 100%;
+}
+.slider .slider_button{
+    position: absolute;
+    height: 33.3%;
+    width: 100%;
+    top: 50%;
+    /* background-color: red; */
+    display: none;
+    z-index: 3;
+    opacity: 1;
+}
+.slider .slider_button .arrowl{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    display: inline-block;
+    width: 20%;
+}
+.slider .slider_button .arrowl img{
+    width: 100%;
+}
+
+.slider .slider_button .arrowr{
+    height: 100%;
+    right: 0;
+    position: absolute;
+    display: inline-block;
+    width: 20%;
+}
+.slider .slider_button .arrowr img{
+    width: 100%;
+}
+
+@media screen and (max-width: 1280px){
+    
+}
+@media screen and (max-width: 1024px){
+
+}
+
+@media screen and (max-width: 768px){
+    .slider{
+        width: 500px;
+        height: 300px;
+    }
+}
+@media screen and (max-width: 414px){
+    .slider{
+        width: 100%;
+        height: 300px;
+    }
+    .slider .slider_main{
+        width: 250px;
+        height: 200px;
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+    }
+}
+
+/*中间滚动木马*/
+

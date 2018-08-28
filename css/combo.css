@@ -1,0 +1,152 @@
+
+
+
+/*自我介绍*/
+/* manul */
+.combo_container{
+    width: 1100px;
+    height: 3200px;
+    margin: 0 auto;
+    background-color: white;
+}
+.combo_container .head_img{
+    width: 100%;
+}
+.combo_container .head_img img{
+    width: 100%;
+}
+
+.combo_container ul{
+    width: 100%;
+    margin-top: 100px;
+}
+/* manul */
+.combo_container .paragraph li{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 100px 0 100px;
+    margin-bottom: 180px;
+}
+.combo_container ul li h1{
+    font-family: 'Microsoft JhengHei';
+    line-height: 60px;
+    font-size: 45px;
+    color: rgb(54, 54, 54);
+    display: block;
+    margin-bottom: 23px;
+    text-indent: 1em;
+}
+
+.combo_container ul li p{
+    font-family: 'Microsoft YaHei';
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 2px;
+    color: rgb(71, 71, 71);
+    text-indent: 2em;
+}
+
+/*留言栏*/
+.comment_box {
+    width: 100%;
+    /* height: 300px; */
+    margin: 100px auto;
+    border: 0px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.comment_box .comment_content {
+    width: 100%;
+    height: 300px;
+    /* background-color: rebeccapurple; */
+    margin: 0 auto;
+}
+.comment_box .comment_content span{
+    display: block;
+    font-size: 24px;
+    margin-left: 10%;
+    margin-bottom: 15px;
+    height: 50px;
+    line-height: 50px;
+}
+/* manul*/
+.comment_box .comment_content textarea{
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 0px solid gray;
+    resize: none;
+    background-color: rgb(203, 228, 243);
+}
+.comment_box .comment_content button{
+    display: block;
+    margin-top: 20px;
+    margin-left: 80%;
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(158, 184, 201);
+    color: white;
+}
+
+
+.comment_box .comment {
+    padding-left: 20px;
+    padding-right: 20px;
+    /* height: 40px; */
+    /* background-color: rebeccapurple; */
+}
+
+.comment_box .comment ul li {
+    list-style: none;
+    display: block;
+    color: rebeccapurple;
+    border-bottom: 1px dashed gray;
+    height: 40px;
+    line-height: 40px;
+    text-indent:2em;
+}
+
+.comment_box .comment ul li a {
+    float: right;
+    color: rgb(82, 81, 81);
+    cursor: pointer;
+}
+.comment_box .comment ul li a:hover{
+    color: red;
+}
+
+@media screen and (max-width: 1280px){
+    
+}
+@media screen and (max-width: 1024px){
+    .combo_container{
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .combo_container{
+        width: 700px;
+    }
+    .comment_box .comment_content textarea{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 414px){
+    .combo_container{
+        width: 100%;
+        height: 3400px;
+    }
+    .comment_box .comment_content textarea{
+        width: 70%;
+    }
+    .combo_container .paragraph li{
+        padding: 0 20px 0 20px;
+    }
+}
+/*自我介绍*/

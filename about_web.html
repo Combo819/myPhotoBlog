@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <title>about_web</title>
+    <link rel="stylesheet" href="css/about_web.css">
+    <link rel="stylesheet" href="css/head_foot.css">
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div class="header_limite" id="header_limite">
+            <div class="logo" id="logo">
+                <a href="index.html"><img src="images/homepage/logo.png"></a>
+            </div>
+            <div class="navi" id="navi">
+                <ul>
+                    <li><a href="waterfall.html">瀑布流</a></li>
+                    <li><a href="division.html">分类</a></li>
+                    <li><a href="article.html">文章</a></li>
+                    <li><a href="about_web.html">说明</a></li>
+                    <li><a href="combo.html">制作者</a></li>
+                </ul>
+            </div>
+            <!-- width lesser than 375px -->
+            <div class="navi2" id="navi2">
+                <span>导航栏</span>
+                <ul>
+                    <li><a href="waterfall.html">瀑布流</a></li>
+                    <li><a href="division.html">分类</a></li>
+                    <li><a href="article.html">文章</a></li>
+                    <li><a href="about_web.html">说明</a></li>
+                    <li><a href="combo.html">制作者</a></li>
+                </ul>
+            </div>
+            <!-- width lesser than 375px -->
+            <div class="search" id="search">
+                <input type="text" name="" id="search_box" class="search_box" placeholder="搜索">
+                <button>搜索</button>
+            </div>
+            <div class="account" id="account">
+                <div class="portrait" id="portrait">
+                    <img src="images/homepage/portrait.jpg">
+                    <span>Combo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top"></div>
+
+    <div class="explanation" id="explanation">
+        <ul class="explanation_container" id="explanation_container">
+            <li class="explanation_box" style="height:22%">
+                <span class="explantion_title">
+                    概述
+                </span>
+                <div class="explanation_article" style="height:80%">
+                    <p> 很早之前就想拥有一个自己的博客，学了前端开发后终于实现了这个愿望。这个网页是用原生JavaScript搭的，里面展示的图片是从2016年到现在的部分摄影作品。因为这个网站是为了检验前端技术，所以选取的图片也只是意思一下，更多图片请关注底部的社区。
+                        此网站在Chrome下调试开发，但也考虑了浏览器兼容性的问题。经测试在Chrome, safari, FireFox，Edge以及IE 10(允许控件)下都能正常运行，但在IE 9下边框会出现错误。目前本网页共有6个页面，首页，瀑布流，分类浏览，微信文章，网站开发总结，以及我的个人介绍。
+                        在任何页面点击左上角logo都能回到首页。值得一提的是，本网页的大部分动画效果都调用了封装的缓动函数buffer,使得动作过渡更加平滑。
+                    </p>
+                    <p>
+                        本网站基于CSS3 @meida 和 JS windows.onresize做了适配移动端的自适应设计。总体上分为：屏幕宽度小于414px（iphone* plus）,414px~768px(ipad竖屏),768px~1024px(ipad横屏)，1024px~1280px以及1280px以上。比如顶上的状态栏，当屏幕缩小时，一些次要元素会逐个消失，最后导航栏被折叠。底部在小于414px也会有新的排布。具体页面设计方式下文细说。网页配色基本为黑白灰，布局上追求极简。Bug报告：617512696@qq.com
+                    </p>
+                    <p><br><br>TodoList:<br>进一步适配手机<br>完善留言和搜索栏功能<br>搬运更多图片<br>开发英文版</p>
+                </div>
+            </li>
+            <li class="explanation_box" style="height:13%;">
+                <span class="explantion_title">
+                    首页
+                </span>
+                <div class="explanation_article">
+                    <p>
+                        当鼠标进入图片区域时，左右按钮出现。按左右按钮图片会向前向后滚。点击滚图将会跳转到相应的页面。五张滚图的宽度，绝对定位，透明度，z-index等CSS装在一个json里面，当按左右按钮是，通过pop-unshift和shift-push操作来将json内的CSS信息更新，然后再由缓动函数buffer重新读取json来对滚图重新排位。
+                        动画效果在Edge下会有少许卡顿。
+                    </p>
+                    <p>
+                        当屏幕宽度小于1280px时，左右按钮会一直出现（考虑到移动端无法mouseover）。当屏幕宽度缩小到768px时，滚图照原先排布按比例缩小一半。当继续缩小到414px，又按比例缩小一半。本来在小屏上准备通过左滑和右滑来切换滚图。但是原生js对滑动太不友好，因此用缩小的按钮代替。
+                    </p>
+                </div>
+            </li>
+            <li class="explanation_box" style="height:18%">
+                <span class="explantion_title">
+                    瀑布流
+                </span>
+                <div class="explanation_article" >
+                    <p>
+                        瀑布流每次加载20张图，往下拉到底会触发加载新的20张图，由于本地图库有限，瀑布流会在102张图片里循环。点击右下角的Top会缓动回到顶上。点击瀑布流中的任意图片能浏览大图，再点大图能跳转到我的Lofter首页，点击黑色遮罩退出大图浏览。
+                    </p>
+                    <p>
+                        这是花费时间最长的一个板块。参考网上已有的瀑布流代码，发现根本没法形成效果。网上示例的瀑布流是小图，而我用来瀑布流的素材图比较大，加载慢，又由于浏览器异步执行Javascript(好坑爹的语言),导致瀑布流布局函数无法读取到图片的高度。只能在外部用.bat生成每个图片的宽高，再写成一个json，让程序直接读取每个图片的高度。后面又遇到重复执行的函数读取返回值作为参数的问题，后面终于把这个问题解决。因此这一部分可能存在一些冗余代码，后面考虑继续简并。
+                    </p>
+                    <p>
+                        最大屏幕时，每行显示三个图片格子，当屏幕缩小到1024px后，修改排布瀑布流的宽度，每行显示格子变为两个。继续缩小屏幕会变成一个图片格子。但改变屏幕（浏览器）宽度后，需要手动刷新才能重新排布。理论上讲，瀑布流该要能随屏幕宽度变动而自动重新排布的。我想过在最外层加一个setIntevral，但这恐怕会很耗费性能。而这一页面的JS各种函数参数犬牙交错，我没法在短时间内在内部改好，所以只能靠手动刷新将就一下。当然，新打开网页都是适配浏览器宽度的。
+                    </p>
+                </div>
+            </li>
+            <li class="explanation_box" style="height:12%;">
+                <span class="explantion_title">
+                    分类
+                </span>
+                <div class="explanation_article">
+                    <p>
+                        本页分为“人文”，“风光”，“日系”三个风格的板块，点击三个选项卡能切换版面，选中的显示为橙色。当鼠标悬浮在图片上时会有遮罩下来，点击图片会跳转到Lofter相应的图集。
+                    </p>
+                    <p>
+                        遮罩在每一张图片的上方，超出区域不显示，当鼠标悬浮时，调用缓动函数将遮罩位移下来。板块内的布局用flex.
+                    </p>
+                    <p>
+                        本页随着屏幕（浏览器）宽度缩小，布局区域宽度也会缩小，高度增加。每行开始排三个格子，到排两个，最后排一个。布局区域改变后，用flex能自动重新排布。
+                    </p>
+                </div>
+            </li>
+            <li class="explanation_box" style="height:12%;">
+                <span class="explantion_title">
+                    文章
+                </span>
+                <div class="explanation_article">
+                    <p>
+                        从我的微信订阅号上扒了九篇文章下来，刚好排一个九宫格。当鼠标悬浮在每个格子上时，格子会向左上角跳起。点击图片会跳转到微信订阅号的此文章页面。
+                    </p>
+                    <p>
+                        这一块用到的技术不多，布局用flex，格子的效果也只是用CSS3的:hover而没有用JavaScript。
+                    </p>
+                    <p>
+                        跟上面一样，随着屏幕（浏览器）宽度缩小，布局区域宽度缩小，高度增加，然后每行开始排三个，到排两个，最后排一个。再通过flex自动布局。
+                    </p>
+                </div>
+            </li>
+            <li class="explanation_box">
+                <span class="explantion_title">
+                    关于本站
+                </span>
+                <div class="explanation_article">
+                    <p>
+                        即本页面，制作网页的总结。本页给每个页面分配了一个格子放文章段落。因为文档太长，所以再右下角做了个电梯导航特效。点击后会把滚动条送到相应的楼层，当鼠标滚动滚轮时，右边的电梯也会自动检测所在楼层并用白色底色显示出来。
+                    </p>
+                    <p>
+                        本页面用了简单的标准流排布。开始先用一个数组floorHeightArr存储每个格子的offsetTop,代码检测到ScrollTop再与数组中的值对比来求出需要高亮的电梯层数。但在大屏幕时，最后一个格子+底部栏高度还没屏幕高时，会导致滚动条到不了最后一个格子却不断贴着底部的情况。用一个循环将floorHeightArr数组里大于最后一屏深度的值替代为最后一屏的深度，因此解决。
+                    </p>
+                    <p>
+                        当屏幕（浏览器）宽度减小时，整体高度随着变高，各个段落的深度（offsetTop）发生变化。因此加了一个setInterval来不断更新floorHeightArr数组。随着屏幕（浏览器）宽度减小，每个楼层宽度跟着减小，高度增加。右边的导航电梯往更右边靠拢。当屏幕宽度小于414px，屏幕不滚动时导航电梯隐藏，滚动后出现三秒再消失。
+                    </p>
+                </div>
+            </li>
+            <li class="explanation_box" style="border:0;height:12%;">
+                <span class="explantion_title">
+                    制作者
+                </span>
+                <div class="explanation_article">
+                    <p>
+                        我的自我介绍。下面有一个（未完工的）留言板块，在textarea内写下留言并点击发表，留言会出现在下方。输入的不得为空或超过八十个字符。留言在每次关闭后被清除。 这个留言功能是先取得textarea里面的值，再动态地往div内添加li而生成的。每增加一条留言就通过js为总高度添加40px，删除时减回40px。
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="floor_index" id="floor_index">
+            <ul>
+                <li>最顶</li>
+                <li>概述</li>
+                <li>首页</li>
+                <li>瀑布流</li>
+                <li>分类</li>
+                <li>文章</li>
+                <li>关于本站</li>
+                <li>制作者</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="foot" id="foot">
+        <div class="foot_limite" id="foot_limite">
+            <div class="follow" id="follow">
+                关注我：
+            </div>
+            <div class="icon" id="icon">
+                <div class="icon_left" id="icon_left">
+                    <ul>
+                        <li> <a href="http://24combo.lofter.com/" target="_blank"><img src="images/homepage/lofter.png" alt=""></a>
+                            <span>lofter</span></li>
+                        <li> <a href="https://weibo.com/u/1957307977" target="_blank"><img src="images/homepage/weibo.png"
+                                    alt=""></a> <span>weibo</span></li>
+                        <li> <a href="https://tuchong.com/1167675/" target="_blank"><img src="images/homepage/tuchong.png"
+                                    alt=""></a> <span>tuchong </span></li>
+                        <li> <a href="https://github.com/Combo819?tab=repositories" target="_blank"><img src="images/homepage/github.png"
+                                    alt=""></a> <span>github </span></li>
+                    </ul>
+                </div>
+                <div class="border_center" id="border_center">
+
+                </div>
+                <div class="icon_right" id="icon_right">
+                    <div class="wechat_qrcode" id="wechat_qrcode">
+                        <img src="images/homepage/wechat_QRcode.jpg" alt="">
+                        <span>微信公众号</span>
+                    </div>
+                </div>
+            </div>
+            <div class="declaration" id="declaration">
+                网页设计&amp制作 : Combo | all copyrights reserved.
+            </div>
+        </div>
+        <!-- lesser than 375px -->
+        <div class="foot_limite2" id="foot_limite2">
+            <div class="follow2" id="follow2">
+                关注我:
+            </div>
+            <ul class="icon2" id="icon2">
+                <li><a href="http://24combo.lofter.com/" target="_blank"><img src="images/homepage/lofter.png" alt=""></a></li>
+                <li><a href="https://weibo.com/u/1957307977" target="_blank"><img src="images/homepage/weibo.png" alt=""></a></li>
+                <li><a href="https://tuchong.com/1167675/" target="_blank"><img src="images/homepage/tuchong.png" alt=""></a></li>
+                <li><a href="https://github.com/Combo819?tab=repositories" target="_blank"><img src="images/homepage/github.png"
+                            alt=""></a></li>
+            </ul>
+            <div class="wechat_qrcode2" id="wechat_qrcode2">
+                <img src="images/homepage/wechat_QRcode.jpg" alt="">
+            </div>
+            <div class="declaration2" id="declaration2">
+                网页设计&amp制作 : Combo | all copyrights reserved.
+            </div>
+        </div>
+        <!-- lesser than 375px -->
+    </div>
+    <script src="js/funcs.js"></script>
+    <script src="js/about_web.js"></script>
+    <script src="js/header.js"></script>
+</body>
+
+</html>
